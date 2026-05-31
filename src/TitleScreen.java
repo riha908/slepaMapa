@@ -5,35 +5,27 @@ public class TitleScreen {
 
     private JFrame frame;
 
-    public TitleScreen(){
-        frame = new JFrame("TODO List");
+    public TitleScreen() {
+        frame = new JFrame("Slepá mapa");
     }
 
-    public void init(){
-        this.frame.setSize(600,600);
-        this.frame.setLayout(new BorderLayout());
-        this.frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        this.frame.setLocationRelativeTo(null);
+    public void init() {
+        frame.setSize(600, 600);
+        frame.setLayout(new BorderLayout());
+        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame.setLocationRelativeTo(null);
 
         JLabel label = new JLabel("Welcome", JLabel.CENTER);
-        this.frame.add(label, BorderLayout.CENTER);
+        frame.add(label, BorderLayout.CENTER);
 
         JButton button = new JButton("Start");
-        CustomButton.changeStyle(button);
-        this.frame.add(button, BorderLayout.SOUTH);
+        frame.add(button, BorderLayout.SOUTH);
 
-
-        button.addActionListener(e ->{
-            this.frame.dispose();
-            new App().init();
+        button.addActionListener(e -> {
+            frame.dispose();
+            SwingUtilities.invokeLater(() -> new BlindMapOfEurope().setVisible(true));
         });
 
-
-
-
-        this.frame.setVisible(true);
+        frame.setVisible(true);
     }
-
-
-
 }

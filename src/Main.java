@@ -5,6 +5,5 @@ public class Main {
         TitleScreen title = new TitleScreen();
         title.init();
 
-
     }
 }
